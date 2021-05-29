@@ -180,7 +180,8 @@ async def sample(e):
                     Button.inline("SCREENSHOTS", data=f"sshot{wah}"),
                     Button.inline("COMPRESS", data=f"sencc{wah}"),
                 ],
-                [Button.inline("SKIP", data=f"skip{wah}")],
+                [Button.inline("SKIP", data=f"skip{wah}"),
+                ],
             ],
         )
         COUNT.remove(e.chat_id)
