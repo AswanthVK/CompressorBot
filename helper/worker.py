@@ -17,7 +17,7 @@ from .funcn import *
 from .FastTelethon import download_file, upload_file
 
 async def screenshot(e):
-    await e.edit("`Generating Screenshots...`")
+    await e.edit("Generating Screenshots…")
     COUNT.append(e.chat_id)
     wah = e.pattern_match.group(1).decode("UTF-8")
     key = decode(wah)
@@ -38,7 +38,7 @@ async def screenshot(e):
             "Check Screenshots Above 😁",
             buttons=[
                 [
-                    Button.inline("GENERATE SAMPLE", data=f"gsmpl{wah}"),
+                    Button.inline("SAMPLE VIDEO", data=f"gsmpl{wah}"),
                     Button.inline("COMPRESS", data=f"sencc{wah}"),
                 ],
                 [Button.inline("SKIP", data=f"skip{wah}")],
@@ -96,14 +96,14 @@ async def encc(e):
         ees = dt.now()
         ttt = time.time()
         await nn.delete()
-        nnn = await e.client.send_message(e.chat_id, "`Uploading...`")
+        nnn = await e.client.send_message(e.chat_id, "Uploading…")
         with open(out, "rb") as f:
             ok = await upload_file(
                      client=e.client,
                      file=f,
                      name=out,
                      progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
-                         progress(d, t, nnn, ttt, "Uploading..")
+                         progress(d, t, nnn, ttt, "Uploading…")
                          ),
                      )
         ds = await e.client.send_file(
@@ -143,7 +143,7 @@ async def sample(e):
     out, dl, thum, dtime = wh.split(";")
     ss, dd = await duration_s(dl)
     xxx = await e.edit(
-        "`Generating Sample...`",
+        "Generating Sample Video…",
         buttons=[
             [Button.inline("STATS", data=f"stats{wah}")],
             [Button.inline("CANCEL PROCESS", data=f"skip{wah}")],
@@ -211,16 +211,16 @@ async def encod(event):
                 return await event.reply("`This Video File is already Compressed 😑😑.`")
         except BaseException:
             pass
-        xxx = await event.reply("`Downloading...`")
+        xxx = await event.reply("Downloading…")
         """ For Force Subscribe Channel"""
-        # pp = []
-        # async for x in event.client.iter_participants("put group username"):
-        #    pp.append(x.id)
-        # if (user.id) not in pp:
-        #    return await xxx.edit(
-        #        "U Must Subscribe This Channel To Use This Bot",
-        #       buttons=[Button.url("JOIN CHANNEL", url="put group link")],
-        #   )
+        pp = []
+        async for x in event.client.iter_participants("@NewBotz"):
+           pp.append(x.id)
+        if (user.id) not in pp:
+           return await xxx.edit(
+               "U Must Subscribe This Channel To Use This Bot",
+              buttons=[Button.url("JOIN CHANNEL", url="https://t.me/NewBotz")],
+          )
         if len(COUNT) > 4 and user.id != OWNER:
             llink = (await event.client(cl(LOG))).link
             return await xxx.edit(
@@ -273,7 +273,7 @@ async def encod(event):
                     event.media,
                     dir,
                     progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
-                        progress(d, t, xxx, ttt, "Downloading")
+                        progress(d, t, xxx, ttt, "Downloading…")
                     ),
                 )
         except Exception as er:
@@ -300,7 +300,7 @@ async def encod(event):
             f"🐠DOWNLODING COMPLETED!!🐠",
             buttons=[
                 [
-                    Button.inline("GENERATE SAMPLE", data=f"gsmpl{key}"),
+                    Button.inline("SAMPLE VIDEO", data=f"gsmpl{key}"),
                     Button.inline("SCREENSHOTS", data=f"sshot{key}"),
                 ],
                 [Button.url("MEDIAINFO", url=inf)],
@@ -343,7 +343,7 @@ async def customenc(e, key):
     ees = dt.now()
     ttt = time.time()
     await nn.delete()
-    nnn = await e.client.send_message(e.chat_id, "`Uploading...`")
+    nnn = await e.client.send_message(e.chat_id, "Uploading…")
     try:
         with open(out, "rb") as f:
             ok = await upload_file(
@@ -351,7 +351,7 @@ async def customenc(e, key):
                      file=f,
                      name=out,
                      progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
-                         progress(d, t, nnn, ttt, "Uploading..")
+                         progress(d, t, nnn, ttt, "Uploading…")
                          ),
                      )
         ds = await e.client.send_file(
