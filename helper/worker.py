@@ -173,7 +173,7 @@ async def sample(e):
             force_document=False,
             thumb=thum,
             progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
-                progress(d, t, xxx, ttt, "uploading..", file=f"{out}")
+                progress(d, t, xxx, ttt, "Uploading…", file=f"{out}")
             ),
             buttons=[
                 [
@@ -264,7 +264,7 @@ async def encod(event):
                                 t,
                                 xxx,
                                 ttt,
-                                "Downloading",
+                                "Downloading…",
                             )
                         ),
                     )
@@ -297,14 +297,16 @@ async def encod(event):
         COUNT.remove(user.id)
         await event.client.send_message(
             event.chat_id,
-            f"🐠DOWNLODING COMPLETED!!🐠",
+            f"🎏DOWNLODING COMPLETED!!",
             buttons=[
                 [
                     Button.inline("SAMPLE VIDEO", data=f"gsmpl{key}"),
                     Button.inline("SCREENSHOTS", data=f"sshot{key}"),
                 ],
                 [Button.url("MEDIAINFO", url=inf)],
-                [Button.inline("COMPRESS", data=f"sencc{key}")],
+                [
+                    Button.inline("COMPRESS", data=f"sencc{key}"),
+                    Button.inline("CANCEL", data=f"skip{wah}")],
             ],
         )
     except BaseException as er:
