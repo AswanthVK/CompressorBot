@@ -194,9 +194,6 @@ async def sample(e):
 
 
 async def encod(event):
-    wah = event.pattern_match.group(1).decode("UTF-8")
-    wh = decode(wah)
-    COUNT.append(event.chat_id)
     try:
         if not event.is_private:
             return
@@ -308,9 +305,7 @@ async def encod(event):
                     Button.inline("SCREENSHOTS", data=f"sshot{key}"),
                 ],
                 [Button.url("MEDIAINFO", url=inf)],
-                [
-                    Button.inline("COMPRESS", data=f"sencc{key}"),
-                    Button.inline("CANCEL", data=f"skip{wah}")],
+                [Button.inline("COMPRESS", data=f"sencc{key}")],
             ],
         )
     except BaseException as er:
