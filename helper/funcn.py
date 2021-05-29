@@ -85,7 +85,7 @@ async def progress(current, total, event, start, type_of_ps, file=None):
         )
         tmp = (
             progress_str
-            + "{0} of {1}\n<b>Speed:</b> {2}/s\n\n<b>ETA:</b> {3}\n".format(
+            + "Done: {0} of {1}\nSpeed: {2}/s\n\nETA: {3}\n".format(
                 hbs(current),
                 hbs(total),
                 hbs(speed),
@@ -97,7 +97,7 @@ async def progress(current, total, event, start, type_of_ps, file=None):
                 "{}\n\nFile Name: {}\n\n{}".format(type_of_ps, file, tmp)
             )
         else:
-            await event.edit("`{}\n\n{}".format(type_of_ps, tmp))
+            await event.edit("{}\n\n{}".format(type_of_ps, tmp))
 
 
 async def genss(file):
