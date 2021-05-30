@@ -73,7 +73,7 @@ async def encc(e):
         wh = decode(wah)
         out, dl, thum, dtime = wh.split(";")
         nn = await e.edit(
-            "`Compressing..`",
+            "`Compressing...`",
             buttons=[
                 [Button.inline("STATS", data=f"stats{wah}")],
                 [Button.inline("CANCEL PROCESS", data=f"skip{wah}")],
@@ -96,7 +96,7 @@ async def encc(e):
         ees = dt.now()
         ttt = time.time()
         await nn.delete()
-        nnn = await e.client.send_message(e.chat_id, "Uploading…")
+        nnn = await e.client.send_message(e.chat_id, "'Uploading...'")
         with open(out, "rb") as f:
             ok = await upload_file(
                      client=e.client,
@@ -109,7 +109,7 @@ async def encc(e):
         ds = await e.client.send_file(
             e.chat_id,
             file=ok,
-            force_document=True,
+            force_document=False,
             thumb=thum)
         await nnn.delete()
         org = int(Path(dl).stat().st_size)
@@ -123,7 +123,7 @@ async def encc(e):
         a1 = await info(dl, e)
         a2 = await info(out, e)
         dk = await ds.reply(
-            f"Original Size : {hbs(org)}\nCompressed Size : {hbs(com)}\nCompressed Percentage : {per}\n\nMediainfo: [Before]({a1}) | [After]({a2})\n\nDownloaded in {x}\nCompressed in {xx}\nUploaded in {xxx}",
+            f"Original Size : {hbs(org)}\nCompressed Size : {hbs(com)}\n\nMediainfo: [Before]({a1}) | [After]({a2})\n\nDownloaded in {x}\nCompressed in {xx}\nUploaded in {xxx}",
             link_preview=False,
         )
         await ds.forward_to(LOG)
@@ -265,7 +265,7 @@ async def encod(event):
                                 t,
                                 xxx,
                                 ttt,
-                                "Downloading…",
+                                "'Downloading...'",
                             )
                         ),
                     )
@@ -287,7 +287,7 @@ async def encod(event):
         rr = f"encode/{user.id}"
         if not os.path.isdir(rr):
             os.mkdir(rr)
-        bb = kk.replace(f".{aa}", " compressed.mkv")
+        bb = kk.replace(f".{aa}", " compressed.mp4")
         out = f"{rr}/{bb}"
         thum = "thumb.jpg"
         dtime = ts(int((es - s).seconds) * 1000)
@@ -344,7 +344,7 @@ async def customenc(e, key):
     ees = dt.now()
     ttt = time.time()
     await nn.delete()
-    nnn = await e.client.send_message(e.chat_id, "Uploading…")
+    nnn = await e.client.send_message(e.chat_id, "'Uploading...'")
     try:
         with open(out, "rb") as f:
             ok = await upload_file(
