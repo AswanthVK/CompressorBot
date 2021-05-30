@@ -49,7 +49,7 @@ async def eval(event):
             await event.client.send_file(
                 event.chat_id,
                 out_file,
-                force_document=True,
+                force_document=False,
                 allow_cache=False,
                 caption=cmd,
             )
@@ -87,7 +87,7 @@ async def bash(event):
             await event.client.send_file(
                 event.chat_id,
                 out_file,
-                force_document=True,
+                force_document=False,
                 allow_cache=False,
                 caption=cmd,
             )
