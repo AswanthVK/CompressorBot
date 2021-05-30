@@ -358,7 +358,7 @@ async def customenc(e, key):
         ds = await e.client.send_file(
             e.chat_id,
             file=ok,
-            force_document=True,
+            force_document=False,
             thumb=thum)
         await nnn.delete()
     except Exception as er:
