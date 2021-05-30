@@ -193,10 +193,7 @@ async def sample(e):
         return
 
 
-async def encod(e, event):
-    wah = e.pattern_match.group(1).decode("UTF-8")
-    wh = decode(wah)
-    COUNT.append(e.chat_id)
+async def encod(event):
     try:
         if not event.is_private:
             return
