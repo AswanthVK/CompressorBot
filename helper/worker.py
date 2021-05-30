@@ -193,7 +193,10 @@ async def sample(e):
         return
 
 
-async def encod(event):
+async def encod(e, event):
+    wah = e.pattern_match.group(1).decode("UTF-8")
+    wh = decode(wah)
+    COUNT.append(e.chat_id)
     try:
         if not event.is_private:
             return
@@ -320,7 +323,7 @@ async def customenc(e, key):
     wh = decode(wah)
     out, dl, thum, dtime = wh.split(";")
     nn = await e.edit(
-        "`Compressing..`",
+        "`Compressing...`",
         buttons=[
             [Button.inline("STATS", data=f"stats{wah}")],
             [Button.inline("CANCEL PROCESS", data=f"skip{wah}")],
@@ -358,7 +361,7 @@ async def customenc(e, key):
         ds = await e.client.send_file(
             e.chat_id,
             file=ok,
-            force_video=True,
+            force_document=False,
             thumb=thum)
         await nnn.delete()
     except Exception as er:
@@ -377,7 +380,7 @@ async def customenc(e, key):
     a1 = await info(dl, e)
     a2 = await info(out, e)
     dk = await ds.reply(
-        f"Original Size : {hbs(org)}\nCompressed Size : {hbs(com)}\nCompressed Percentage : {per}\n\nMediainfo: [Before]({a1}) | [After]({a2})\n\nDownloaded in {x}\nCompressed in {xx}\nUploaded in {xxx}",
+        f"Original Size : {hbs(org)}\nCompressed Size : {hbs(com)}\n\nMediainfo: [Before]({a1}) | [After]({a2})\n\nDownloaded in {x}\nCompressed in {xx}\nUploaded in {xxx}",
         link_preview=False,
     )
     await ds.forward_to(LOG)
