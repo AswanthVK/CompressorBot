@@ -226,7 +226,7 @@ async def encod(event):
             llink = (await event.client(cl(LOG))).link
             return await xxx.edit(
                 "Overload Already 5 Process Running",
-                buttons=[Button.url("Working Status", url=https://t.me/joinchat/n3e5ESKZ1R8yMGVh)],
+                buttons=[Button.url("Working Status", url="https://t.me/joinchat/n3e5ESKZ1R8yMGVh")],
             )
         if user.id in COUNT and user.id != OWNER:
             return await xxx.edit(
