@@ -212,7 +212,7 @@ async def encod(event):
                 return await event.reply("`This Video File is already Compressed 😑😑.`")
         except BaseException:
             pass
-        xxx = await event.reply("'Downloading...'")
+        xxx = await event.reply("Downloading...")
         """ For Force Subscribe Channel"""
         pp = []
         async for x in event.client.iter_participants("NewBotz"):
@@ -265,7 +265,7 @@ async def encod(event):
                                 t,
                                 xxx,
                                 ttt,
-                                "'Downloading...'",
+                                "Downloading...",
                             )
                         ),
                     )
@@ -274,7 +274,7 @@ async def encod(event):
                     event.media,
                     dir,
                     progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
-                        progress(d, t, xxx, ttt, "Downloading…")
+                        progress(d, t, xxx, ttt, "Downloading")
                     ),
                 )
         except Exception as er:
@@ -344,7 +344,7 @@ async def customenc(e, key):
     ees = dt.now()
     ttt = time.time()
     await nn.delete()
-    nnn = await e.client.send_message(e.chat_id, "'Uploading...'")
+    nnn = await e.client.send_message(e.chat_id, "Uploading...")
     try:
         with open(out, "rb") as f:
             ok = await upload_file(
@@ -352,7 +352,7 @@ async def customenc(e, key):
                      file=f,
                      name=out,
                      progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
-                         progress(d, t, nnn, ttt, "Uploading…")
+                         progress(d, t, nnn, ttt, "Uploading")
                          ),
                      )
         ds = await e.client.send_file(
