@@ -123,7 +123,7 @@ async def encc(e):
         a1 = await info(dl, e)
         a2 = await info(out, e)
         dk = await ds.reply(
-            f"Original Size : {hbs(org)}\nCompressed Size : {hbs(com)}\n\nMediainfo: [Before]({a1}) | [After]({a2})\n\nDownloaded in {x}\nCompressed in {xx}\nUploaded in {xxx}",
+            f"Original Size : {hbs(org)}\nCompressed Size : {hbs(com)}\nCompressed Percentage : {per}\n\nMediainfo: [Before]({a1}) | [After]({a2})\n\nDownloaded in {x}\nCompressed in {xx}\nUploaded in {xxx}",
             link_preview=False,
         )
         await ds.forward_to(LOG)
@@ -212,7 +212,7 @@ async def encod(event):
                 return await event.reply("`This Video File is already Compressed 😑😑.`")
         except BaseException:
             pass
-        xxx = await event.reply("Downloading…")
+        xxx = await event.reply("'Downloading...'")
         """ For Force Subscribe Channel"""
         pp = []
         async for x in event.client.iter_participants("NewBotz"):
@@ -226,7 +226,7 @@ async def encod(event):
             llink = (await event.client(cl(LOG))).link
             return await xxx.edit(
                 "Overload Already 5 Process Running",
-                buttons=[Button.url("Working Status", url=llink)],
+                buttons=[Button.url("Working Status", url=https://t.me/joinchat/n3e5ESKZ1R8yMGVh)],
             )
         if user.id in COUNT and user.id != OWNER:
             return await xxx.edit(
@@ -298,7 +298,7 @@ async def encod(event):
         COUNT.remove(user.id)
         await event.client.send_message(
             event.chat_id,
-            f"🎏DOWNLODING COMPLETED!!",
+            f"DOWNLODING COMPLETED!!",
             buttons=[
                 [
                     Button.inline("SAMPLE VIDEO", data=f"gsmpl{key}"),
@@ -377,7 +377,7 @@ async def customenc(e, key):
     a1 = await info(dl, e)
     a2 = await info(out, e)
     dk = await ds.reply(
-        f"Original Size : {hbs(org)}\nCompressed Size : {hbs(com)}\n\nMediainfo: [Before]({a1}) | [After]({a2})\n\nDownloaded in {x}\nCompressed in {xx}\nUploaded in {xxx}",
+        f"Original Size : {hbs(org)}\nCompressed Size : {hbs(com)}\nCompressed Percentage : {per}\n\nMediainfo: [Before]({a1}) | [After]({a2})\n\nDownloaded in {x}\nCompressed in {xx}\nUploaded in {xxx}",
         link_preview=False,
     )
     await ds.forward_to(LOG)
