@@ -96,14 +96,14 @@ async def encc(e):
         ees = dt.now()
         ttt = time.time()
         await nn.delete()
-        nnn = await e.client.send_message(e.chat_id, "'Uploading...'")
+        nnn = await e.client.send_message(e.chat_id, "Uploading...")
         with open(out, "rb") as f:
             ok = await upload_file(
                      client=e.client,
                      file=f,
                      name=out,
                      progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
-                         progress(d, t, nnn, ttt, "Uploading…")
+                         progress(d, t, nnn, ttt, "Uploading...")
                          ),
                      )
         ds = await e.client.send_file(
@@ -173,7 +173,7 @@ async def sample(e):
             force_document=False,
             thumb=thum,
             progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
-                progress(d, t, xxx, ttt, "Uploading…", file=f"{out}")
+                progress(d, t, xxx, ttt, "Uploading...", file=f"{out}")
             ),
             buttons=[
                 [
@@ -274,7 +274,7 @@ async def encod(event):
                     event.media,
                     dir,
                     progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
-                        progress(d, t, xxx, ttt, "Downloading")
+                        progress(d, t, xxx, ttt, "Downloading...")
                     ),
                 )
         except Exception as er:
@@ -352,7 +352,7 @@ async def customenc(e, key):
                      file=f,
                      name=out,
                      progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
-                         progress(d, t, nnn, ttt, "Uploading")
+                         progress(d, t, nnn, ttt, "Uploading...")
                          ),
                      )
         ds = await e.client.send_file(
